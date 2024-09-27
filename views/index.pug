@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel="stylesheet", href="/css/styles.css")
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/script.js")
+  body
+    h1 Lucky Cards
+     h3.welcome Welcome : #{username}
+    p#time
+    div#timerDisplay Elapsed Time : 0 s
+    div.arcadePoints
+      p Points per Game:
+      p.pointsParPartie 10
+      //- select(name="nbPartiesParManche",id="nbPartiesParManche", onchange="envoyerNbParties()",class="champsPointsParPartie")
+        //- option(value="3", class="pointsParPartie") 3
+        //- option(value="10", class="pointsParPartie") 10
+        p.pointsParPartie 10
+        //- option(value="15", class="pointsParPartie") 15 
+    
+    div.cartes-container
+      div.carte-wrapper
+        img(id="carte1", alt="Carte 1", style="cursor:pointer;")
+        p#player1 Player 1
+      div.carte-wrapper
+        img(id="carte2", alt="Carte 2", style="cursor:pointer;")
+        p#player2 Player 2
+    p#nbPointsJoueur1 ?-?-?
+    
+    p#nbPointsJoueur2 ?-?-?
+    p(id="resultat")
+    p#messageFinGame
+
+    //- Section pour le chat
+    div#chat-container
+      h3 Chat
+      div#messages-container(style="max-height: 300px; overflow-y: auto;")
+      textarea#messageInput(rows="3" placeholder="Écrivez votre message...") 
+      button#envoyerMessage Send
+    div
+      form(action='/logout' method='get')
+        button#disconnect Logout
+    div
+      form(action='/ranking' method='get')
+        button#ranking Ranking
+    div
+      form(action='/' method='get')
+        button#restart Restart       

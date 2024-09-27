@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel="stylesheet", href="/css/styles.css")
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/script.js")
+  body
+    h1 Lucky Cards
+    //- //- Section pour le chat
+    //- div#login-container
+    //-   h3 login
+    //-   textarea#loginInput(rows="3" placeholder="Écrivez votre message...") Login : 
+    //-   textarea#emailInput(rows="3" placeholder="Écrivez votre message...") Login :email
+    //-   button#connexion Envoyer
+    //-   buton#nouveauCompte S'incrire
+  
+  .login
+      form(action='/login' method='post')
+        p.nom Username (email):
+        input(type='text' name='username' class='input-field')
+        p.mdp Password :
+        input(type='password' name='password' class='input-field')
+        button(type='submit' class='submit-button') Login
+        button(type='button' class='signup-button' onclick='window.location.href="/register"') Sign in
+        if error
+          p.error-message #{error}    

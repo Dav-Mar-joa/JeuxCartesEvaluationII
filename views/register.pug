@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel="stylesheet", href="/css/styles.css")
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/script.js")
+  body
+    h1 Lucky Cards 
+    .loginRegister
+      form(action='/register' method='post')
+        label(for='username') Username (email) :
+        input(type='text' id='username' name='username'  class='input-field' autocomplete="off" value='Username (email)' required)
+        label(for='username') First Name :
+        input(type='text' id='firstname' name='firstname'  class='input-field' vautocomplete="off" value='First Name' required)
+        label(for='username') Last Name :
+        input(type='text' id='lastname' name='lastname'  class='input-field' autocomplete="off" value='Last Name' required)
+        br
+        label(for='password') Password :
+        input(type='password' id='password' name='password'  class='input-field' autocomplete='new-password' value='' required)
+        br
+        button(type='submit' class='signup-button') Sign in
+        p.error-message #{error}
+        p.error-message #{msg}   

@@ -1,0 +1,405 @@
+body {
+    background-color: #000; /* Fond noir pour un style arcade */
+    color: #00FF00; /* Vert fluorescent pour le texte */
+    font-family: 'Press Start 2P', cursive; /* Typographie arcade */
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0px;
+    margin-top: 70px ;
+    margin-bottom: 70px ;
+    line-height: 1.5;
+}
+h2 {
+  font-size: 1.5em;
+  margin: 0px;
+  margin-top: 70px ;
+  line-height: 1.5;
+}
+
+img {
+    width: 20vh; /* Taille des cartes */
+    height: auto;
+    margin: 20px;
+    transition: transform 0.3s; /* Effet de transition */
+    cursor: pointer; /* Curseur en forme de main */
+}
+
+img:hover {
+    transform: scale(1.04); /* Zoom au survol */
+}
+
+#resultat {
+    font-size: 2em;
+    margin-top: 2%;
+}
+
+/* Styles pour les cartes */
+#carte1, #carte2 {
+    border: 4px solid #00FF00; /* Bordure verte */
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 0 0 10px #00FF00; /* Ombre verte */
+}
+
+.cartes-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 40vh;
+}
+
+.carte-wrapper {
+  display: flex; /* Utilise flexbox */
+  flex-direction: column; /* Aligne le contenu en colonne */
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  margin: 0 60px; /* Pour espacer les cartes entre elles */
+  margin-bottom: 6%;
+  height: 100%; /* Assure que le wrapper prenne toute la hauteur */
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+#player1, #player2 {
+  position: absolute; /* Utilisez la position absolue pour les placer librement */
+  font-size: 1.5em; /* Taille du texte des joueurs */
+  top: 50vh;
+}
+/* Section du chat */
+#chat-container {
+    position: fixed;
+    right: 60px;
+    top: 55vh;
+    transform: translateY(-50%);
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  #login-container {
+    position: relative;
+    margin: auto;
+    top: 55vh;
+    transform: translateY(-50%);
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #chat-container h3 {
+    margin: 20px;
+    text-align: center;
+    color: #ffcc00;
+    margin-top: 20px; /* Ajustez la valeur selon vos besoins */
+  }
+  
+  #messages-container {
+    height: 200px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    word-wrap: break-word;
+    font-size: 12px;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.8;
+  }
+  #time {
+    color: #00FF00; /* Vert fluorescent */
+    font-family: 'Press Start 2P', cursive; /* Typographie arcade */
+    font-size: 20px;
+    position: absolute;
+    top: 30px;
+    left: 100px;
+  }
+  .arcadePoints{
+    position: absolute;
+    top: 70vh;
+    left: 60px;
+  }
+  .nbPartiesParManche{
+    color: #00FF00; /* Vert fluorescent */
+    font-family: 'Press Start 2P', cursive; /* Typographie arcade */
+    font-size: 20px;
+    width: 70px;
+  }
+  .pointsParPartie{
+    color: black;
+    font-family: 'Press Start 2P', cursive; /* Typographie arcade */
+    font-size: 15px;
+    background-color: #ffcc00;
+    text-align: center;
+    height:25px;
+    width: 70px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: auto;
+    padding-top: 5%;
+  }
+  .champsPointsParPartie{
+    color: #00FF00; /* Vert fluorescent */
+    font-family: 'Press Start 2P', cursive; /* Typographie arcade */
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 50px;
+    width: 70px;
+  }
+  
+  #messageInput {
+    width: calc(100% - 60px);
+    height: 30px;
+    background-color: #000;
+    color: white;
+    border: 2px solid #ffcc00;
+    padding-left: 5px;
+    border-radius: 10px;
+  }
+  
+  #envoyerMessage {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    right: 0px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    width: 120px;
+    cursor: pointer;
+    font-family: 'Press Start 2P';
+    border: 3px solid #fff;
+  }
+  #envoyerMessage:hover{
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  #timerDisplay{
+    position: absolute;
+    top:150px;
+    left : 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffcc00;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+  }
+
+  #messageFinGame {
+    display: none; /* Masquer par défaut */
+    position: absolute;
+    top: 35vh;
+    background-color: #00FF00;
+    color: #000;
+    left: 30px;
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+#nbPointsJoueur1,#nbPointsJoueur2{
+  top :15%;
+}
+
+.login {
+  width: 40vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #2a991b;
+  color: #000;
+}
+
+.loginRegister {
+  width: 40vh;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #2a991b;
+  color: #000;
+}
+
+.input-field {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto; /* Centrer horizontalement */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  display: inline-block;
+  width: 48%;
+  padding: 10px;
+  margin-right: 4%;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P'
+}
+
+.signup-button {
+  display: inline-block;
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P'
+}
+
+.submit-button:hover,
+.signup-button:hover {
+  opacity: 0.9;
+  background-color:#ff1654;
+  color: #000000;
+}
+#disconnect {
+  position: absolute;       /* Position absolue par rapport au conteneur parent */
+  top: 15vh;                /* Distance du haut */
+  right: 5vh;              /* Distance de la droite */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+  background-color:rgb(81, 231, 17);
+  color: #000000;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border: 3px solid #fff;
+}
+#disconnect:hover{
+  background-color: #ff0000;
+  color: white;
+}
+#restart {
+  position: absolute;       /* Position absolue par rapport au conteneur parent */
+  top: 88vh;                /* Distance du haut */
+  right: 5vh;              /* Distance de la droite */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+  background-color:#007bff;
+  color: white;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border: 3px solid #fff;
+}
+#restart:hover{
+  background-color:rgb(81, 231, 17);
+  color: #000000;
+}
+#ranking {
+  position: absolute;       /* Position absolue par rapport au conteneur parent */
+  top: 5vh;                /* Distance du haut */
+  right: 5vh;              /* Distance de la droite */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+  background-color:#ffcc00;
+  color: #000000;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border: 3px solid #fff;
+}
+#ranking:hover{
+  background-color:#007bff ;
+  color: white;
+}
+#backToTheGame {
+  position: absolute;       /* Position absolue par rapport au conteneur parent */
+  top: 5vh;                /* Distance du haut */
+  right: 5vh;              /* Distance de la droite */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+  background-color:rgb(81, 231, 17);
+  color: #000000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 3px solid #fff;
+}
+#backToTheGame:hover{
+  background-color: #007bff;
+  color: white;
+}
+.containerRanking {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+}
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.itemRanking{
+  text-align: left;
+}
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 2px solid #444;
+  padding: 10px;
+  text-align: center;
+  line-height: 1.5; /* Ajuster l'interligne ici */
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td {
+  background-color: #222;
+}
+
+#player1, #player2 {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 1.5em; 
+  color: #00FF00; 
+}
+.welcome{
+  position:absolute;
+  top:12vh;
+  left:5vw;
+  
+}
+

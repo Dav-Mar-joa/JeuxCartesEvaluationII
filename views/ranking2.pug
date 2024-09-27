@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Classement des Joueurs
+    //- style
+    //-   table, th, td {
+    //-     border: 1px solid black;
+    //-     border-collapse: collapse;
+    //-   }
+    //-   th, td {
+    //-     padding: 8px;
+    //-     text-align: left;
+    //-   }
+  body
+    h1 Classement des Joueurs
+
+    //- Vérification s'il y a des enregistrements à afficher
+    if rankings.length > 0
+      table
+        thead
+          tr
+            th Identifiant
+            th Prénom
+            th Nom
+            th Nombre de parties
+            th Score
+
+        tbody
+          each player in rankings
+            tr
+              td= player.identifiant
+              td= player.firstName
+              td= player.lastName
+              td= player.nbGames
+              td= player.rate
+    else
+      p Aucun joueur trouvé dans la base de données.
+
+    //- Bouton pour retourner à la page d'accueil
+    a(href='/') Retour à la page d'accueil
