@@ -373,7 +373,7 @@ function prochaineManche() {
         let messageFinGame;
     if (nbPointsJoueur1 > nbPointsJoueur2) {
         // messageFinGame = "Joueur 1 est Winner";
-        messageFinGame = `${listeUsers[0]} is Winner !!`;
+        messageFinGame = `${listeUsers[0]} WINS !!`;
         let nbrTotalPoints = (Math.abs(nbPointsJoueur2)+Math.abs(nbPointsJoueur1))
         nbPointsJoueurs1Final = nbPointsJoueur1/nbrTotalPoints
         nbPointsJoueurs2Final = nbPointsJoueur2/nbrTotalPoints
@@ -382,7 +382,7 @@ function prochaineManche() {
         miseAjourPoint(nbPointsJoueurs2Final,listeUsers[1],elapsedTime)
     } else {
         // messageFinGame = "Joueur 2 est Winner";
-        messageFinGame = `${listeUsers[1]} is Winner !!`;
+        messageFinGame = `${listeUsers[1]} WINS !!`;
         let nbrTotalPoints = (Math.abs(nbPointsJoueur2)+Math.abs(nbPointsJoueur1))
         nbPointsJoueurs1Final = nbPointsJoueur1/nbrTotalPoints
         nbPointsJoueurs2Final = nbPointsJoueur2/nbrTotalPoints
