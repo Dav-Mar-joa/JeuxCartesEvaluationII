@@ -161,6 +161,8 @@ app.post('/login', async (req, res) => {
     try {
       const collection = db.collection(process.env.MONGODB_COLLECTION);
       const user = await collection.findOne({ identifiant: username });
+      const usersInDb = await collection.find({}).toArray();
+      console.log("Utilisateurs dans la base de données :", usersInDb); // Ajoutez cec
   
       if (user) {
         // Compare le mot de passe fourni avec le mot de passe haché
