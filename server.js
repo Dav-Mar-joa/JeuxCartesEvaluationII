@@ -123,6 +123,8 @@ const connectionString =
 //   "mongodb://" + process.env.mongodb_host + ":" + process.env.mongodb_port;
 // "mongodb+srv://davidjoaquimmartins:david@clusterd.gllspzx.mongodb.net/"
 `mongodb+srv://davidjoaquimartins:david@clusterd.gllspzx.mongodb.net/?retryWrites=true&w=majority&appName=ClusterD`
+`mongodb+srv://davidjoaquimartins:david@cluster0.mongodb.net/JeuxCartes?retryWrites=true&w=majority`
+
 const client = new MongoClient(connectionString);
 const dbName = process.env.mongodb_dbname;
 
