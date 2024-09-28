@@ -237,11 +237,11 @@ app.post('/register', async (req, res) => {
 });
 app.get('/ranking', async (req, res) => {
     console.log("Route GET /ranking atteinte");
-    console.log("Collection utilisée :", process.env.mongodb_collection);
+    console.log("Collection utilisée :", process.env.MONGODB_COLLECTION);
 
     try {
         console.log("Tentative de récupération des classements...");
-        const collection = db.collection(process.env.mongodb_collection);
+        const collection = db.collection(process.env.MONGODB_COLLECTION);
         const result = await collection.find({}).sort({rate : -1}).toArray();
         console.log("Résultat :", result);
         
