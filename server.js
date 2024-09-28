@@ -4,7 +4,6 @@ const { Server } = require('socket.io');
 const path = require('path');
 const { MongoClient } = require('mongodb')
 const { EvalSourceMapDevToolPlugin } = require('webpack');
-const bcrypt = require('bcryptjs');
 const app = express();
 const session = require('express-session');
 const server = http.createServer(app);
