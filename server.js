@@ -200,7 +200,7 @@ app.post('/register', async (req, res) => {
     }
 
     // Hachage du mot de passe (recommandé)
-    const bcrypt = require('bcrypt');
+    const bcrypt = require('bcryptjs');
     const hashedPassword = await bcrypt.hash(password, 10); // Utilisation de bcrypt pour hacher le mot de passe
 
     const newUser = {
