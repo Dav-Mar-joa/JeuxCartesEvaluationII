@@ -9,6 +9,7 @@ const session = require('express-session');
 const server = http.createServer(app);
 const io = new Server(server);
 require('dotenv').config();
+const bcrypt = require('bcryptjs');
 
 // Deck de cartes
 const cartes = [
@@ -118,13 +119,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const connectionString =
+// const connectionString =
 //   "mongodb://" + process.env.mongodb_host + ":" + process.env.mongodb_port;
-"mongodb+srv://davidjoaquimmartins:david@clusterd.gllspzx.mongodb.net/"
+// "mongodb+srv://davidjoaquimmartins:david@clusterd.gllspzx.mongodb.net/"
 // `mongodb+srv://davidjoaquimartins:david@clusterd.gllspzx.mongodb.net/?retryWrites=true&w=majority&appName=ClusterD`
 // `mongodb+srv://davidjoaquimartins:david@cluster0.mongodb.net/JeuxCartes?retryWrites=true&w=majority`
 // `mongodb+srv://davidjoaquimmartins:david@clusterd.gllspzx.mongodb.net/?retryWrites=true&w=majority&appName=ClusterD`
-
+const connectionString = process.env.MONGODB_URI;
 
 
 const client = new MongoClient(connectionString);
@@ -200,7 +201,7 @@ app.post('/register', async (req, res) => {
     }
 
     // Hachage du mot de passe (recommandé)
-    const bcrypt = require('bcryptjs');
+    
     const hashedPassword = await bcrypt.hash(password, 10); // Utilisation de bcrypt pour hacher le mot de passe
 
     const newUser = {
